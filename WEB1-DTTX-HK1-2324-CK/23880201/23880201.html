@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>23880201</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <!-- Bootstrap CSS v5.2.1 -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+        />
+
+        <link rel="stylesheet" href="23880201.css">
+    </head>
+
+    <body>
+        <header class="container-fluid py-3">
+            <div class="container">
+                <h3 class="text-white">BAI THI CUOI KY MON WEB1</h3>
+                <div class="row">
+                    <div class="col align-self-center">
+                        <img src="images/cau1-img.png" alt="">
+                    </div>
+                    <div class="col align-self-center">
+                        <h2>23880201 - BUI HUYNH TRAM ANH</h2>
+                        <p>Lien ket trien khai Project cua ban tren Free Host: <a href="htpp://web1-23880201.vercel.app">htpp://web1-23880201.vercel.app</a></p>
+                        <p>Da hoan thanh videos 1-21</p>
+                        <a href="#cau2" class="btn btn-primary px-5">Cau 2</a>
+                        <a href="#cau3" class="btn btn-secondary px-5">Cau 3</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        
+        <main class="container">
+            <div id="cau2" class="py-3 text-center">
+                <h2>Cau 2</h2>
+                <div class="row" id="view">
+
+                </div>
+            </div>
+        </main>
+        
+        
+        <footer class="container-fluid py-3 text-center text-white">
+            WEB1-DTTX-HK1-2324
+        </footer>
+        <!-- Bootstrap JavaScript Libraries -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"
+        ></script>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"
+        ></script>
+
+        <!--Handelbar-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js" integrity="sha512-E1dSFxg+wsfJ4HKjutk/WaCzK7S2wv1POn1RRPGh8ZK+ag9l244Vqxji3r6wgz9YBf6+vhQEYJZpSjqWFPg9gg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <script src="vendor/data.js"></script>
+
+        <script id="template" type="text/x-handlebars-template">
+            {{#each data}}
+            <div class="col-md-3"> <!--đảm bảo đúng 4 cột-->
+                <div class="card border-0">
+                    <img class="card-img-top" src="{{imagePath}}" alt="{{title}}" />
+                    <div class="card-body">
+                        <h4 class="card-title">{{title}}</h4>
+                        <p class="card-text">{{summary}}</p>
+                    </div>
+                    <div class="card-caption">
+                        <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="{{id}}">Read more</button>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </script>
+
+
+        <script>
+            let jsonData = {
+                data: getAll()
+            };
+            /* Xu ly handelbar o day*/
+            let source = document.querySelector('#template').innerHTML;
+            let template = Handlebars.compile(source);
+            document.querySelector('#view').innerHTML = template(jsonData);
+
+            document.querySelectorAll('.btn-outline-primary').forEach(item => {
+                item.addEventListener('click', (e) =>{
+                    let data = getOne(item.id)[0];
+                    
+                });
+            })
+        </script>
+        
+        <!-- Button trigger modal 
+         Cat hai cai nut bo len readmore roi bo nay
+        <button type="button" class="btn btn-primary">
+        Launch demo modal
+        </button>
+        -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="detailTitle">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="text-center">
+                    <img src="images/img-1.png" alt="" id="detailImage">
+                </div>
+                <p id="detailSummary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum neque a at sapiente veniam doloremque consectetur eos cumque saepe quae perferendis corrupti mollitia quasi molestiae magni voluptatem, nesciunt vero quis.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+            </div>
+        </div>
+        </div>
+
+    </body>
+</html>

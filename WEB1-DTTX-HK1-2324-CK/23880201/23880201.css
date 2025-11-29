@@ -1,0 +1,32 @@
+:root {
+    --web-pink:  #e38773;
+    --web-black: #252525;
+}
+
+header{
+    background: url(images/chan-bg.png) no-repeat;
+    min-height: 600px;
+    background-size: cover;
+    background-position: center;
+}
+
+.btn-primary {
+    background-color: var(--web-pink) !important;
+    border-color: var(--web-pink) !important;
+}
+
+.btn-secondary{
+    background-color: var(--web-black) !important;
+    border-color: var(--web-black) !important;
+}
+
+footer{
+    background: url(images/footer-bg.png) no-repeat;
+}
+
+.btn-outline-primary{
+    border-color: var(--web-pink) !important; /*mau vien*/
+    color: var(--web-pink) !important; /*mau chu*/
+    font-weight: bold;
+
+}
